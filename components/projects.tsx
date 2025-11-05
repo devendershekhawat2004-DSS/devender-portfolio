@@ -29,7 +29,7 @@ export default function Projects() {
         "Designed and developed a responsive fitness-focused website to track workouts, meal plans, and BMI with integrated MySQL database.",
       tech: ["HTML", "CSS", "JavaScript", "MySQL"],
       impact: "30% increase in user engagement",
-      link: "#",
+      link: "https://dm-fitness.page.gd/",
     },
   ]
 
