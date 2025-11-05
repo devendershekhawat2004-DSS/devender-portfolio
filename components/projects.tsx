@@ -34,13 +34,13 @@ export default function Projects() {
       image: "/dmfitness.png", // 👈 preview image path
     },
     {
-      title: "Portfolio Website",
+      title: "Fitness Tracker App",
       description:
         "Created a personal portfolio using Next.js, TypeScript, and Tailwind CSS with animations and smooth scroll.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       impact: "Showcases my skills and achievements interactively",
-      link: "#",
-      image: "/portfolio-preview.png", // 👈 add your own image
+      link: "https://fitness-tracker-24pz.vercel.app",
+      image: "/Fitness-preview.png", // 👈 add your own image
     },
   ];
 
