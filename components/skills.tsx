@@ -1,53 +1,117 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaPython,
+  FaJava,
+  FaGitAlt,
+  FaDatabase,
+  FaTools,
+} from "react-icons/fa";
+import {
+  SiC,
+  SiCplusplus,
+  SiMysql,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiTypescript,
+  SiAdobephotoshop,
+  SiVercel,
+  SiNodedotjs,
+} from "react-icons/si";
+
+// ✅ Added proper TypeScript interfaces here
+interface SkillItem {
+  name: string;
+  icon?: React.ReactNode;
+}
+
+interface SkillCategory {
+  category: string;
+  skills: SkillItem[];
+}
 
 export default function Skills() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const element = document.getElementById("skills")
-    if (element) observer.observe(element)
-    return () => observer.disconnect()
-  }, [])
+    const element = document.getElementById("skills");
+    if (element) observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
-  const skillCategories = [
+  // ✅ Type annotation added for TypeScript
+  const skillCategories: SkillCategory[] = [
     {
       category: "Languages",
-      skills: ["C", "C++", "Java", "Python"],
+      skills: [
+        { name: "C", icon: <SiC /> },
+        { name: "C++", icon: <SiCplusplus /> },
+        { name: "Java", icon: <FaJava /> },
+        { name: "Python", icon: <FaPython /> },
+      ],
     },
     {
       category: "Web Development",
-      skills: ["HTML", "CSS", "JavaScript", "XML"],
+      skills: [
+        { name: "HTML", icon: <FaHtml5 /> },
+        { name: "CSS", icon: <FaCss3Alt /> },
+        { name: "JavaScript", icon: <FaJs /> },
+        { name: "TypeScript", icon: <SiTypescript /> },
+        { name: "React.js", icon: <FaReact /> },
+        { name: "Next.js", icon: <SiNextdotjs /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+        { name: "Node.js", icon: <SiNodedotjs /> },
+      ],
     },
     {
       category: "Database",
-      skills: ["MySQL", "Data Structures in C"],
+      skills: [
+        { name: "MySQL", icon: <SiMysql /> },
+        { name: "Data Structures in C", icon: <FaDatabase /> },
+      ],
     },
     {
       category: "Tools & Software",
-      skills: ["MS Office", "Photoshop", "Dreamweaver"],
+      skills: [
+        { name: "MS Office", icon: <FaTools /> },
+        { name: "Photoshop", icon: <SiAdobephotoshop /> },
+        { name: "Dreamweaver", icon: <FaGitAlt /> },
+        { name: "Vercel", icon: <SiVercel /> },
+      ],
     },
     {
       category: "Soft Skills",
-      skills: ["Problem-Solving", "Teamwork", "Communication", "Adaptability"],
+      skills: [
+        { name: "Problem-Solving" },
+        { name: "Teamwork" },
+        { name: "Communication" },
+        { name: "Adaptability" },
+      ],
     },
-  ]
+  ];
 
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          My <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Skills</span>
+          My{" "}
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Skills
+          </span>
         </h2>
 
         <div
@@ -61,15 +125,20 @@ export default function Skills() {
                 key={index}
                 className="group p-6 bg-gradient-to-br from-slate-700/50 to-slate-800/50 rounded-lg border border-blue-500/20 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 cursor-pointer"
               >
-                <h3 className="text-lg font-bold text-cyan-400 mb-4">{category.category}</h3>
+                <h3 className="text-lg font-bold text-cyan-400 mb-4">
+                  {category.category}
+                </h3>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-start">
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1.5 bg-slate-600/50 text-gray-200 rounded-full text-sm font-medium border border-cyan-500/30 group-hover:border-cyan-400/60 group-hover:bg-cyan-500/20 transition-all duration-300 hover:scale-105"
+                      className="flex items-center gap-2 px-3 py-1.5 bg-slate-600/50 text-gray-200 rounded-full text-sm font-medium border border-cyan-500/30 group-hover:border-cyan-400/60 group-hover:bg-cyan-500/20 transition-all duration-300 hover:scale-105"
                     >
-                      {skill}
+                      {skill.icon && (
+                        <span className="text-cyan-400 text-lg">{skill.icon}</span>
+                      )}
+                      {skill.name}
                     </span>
                   ))}
                 </div>
@@ -79,5 +148,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

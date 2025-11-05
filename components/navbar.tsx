@@ -15,7 +15,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = ["About", "Skills", "Projects", "Education", "Achievements", "Contact"]
+  const navItems = ["About", "Skills", "Projects", "Education","Certifications","Experience", "Achievements", "Contact"]
 
   return (
     <nav

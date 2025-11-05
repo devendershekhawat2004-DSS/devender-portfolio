@@ -1,32 +1,33 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Education() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const element = document.getElementById("education")
-    if (element) observer.observe(element)
-    return () => observer.disconnect()
-  }, [])
+    const element = document.getElementById("education");
+    if (element) observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
+  // ✅ Added logo paths here
   const education = [
     {
       school: "Lovely Professional University",
       degree: "Master of Computer Applications (MCA)",
       status: "Pursuing",
       location: "Phagwara, Punjab",
-      year: "2024-Present",
+      year: "2024 - Present",
+      logo: "/lpu.png", // 👈 image from /public folder
     },
     {
       school: "RNB Global University",
@@ -35,6 +36,7 @@ export default function Education() {
       location: "Bikaner, Rajasthan",
       year: "2025",
       cgpa: "CGPA: 8.61",
+      logo: "/rnb.png",
     },
     {
       school: "Army Public School",
@@ -43,6 +45,7 @@ export default function Education() {
       location: "Bikaner, Rajasthan",
       year: "2022",
       score: "75%",
+      logo: "/aps.png",
     },
     {
       school: "Army Public School",
@@ -51,14 +54,17 @@ export default function Education() {
       location: "Bikaner, Rajasthan",
       year: "2020",
       score: "63%",
+      logo: "/aps.png",
     },
-  ]
+  ];
 
   return (
     <section id="education" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Education</span>
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Education
+          </span>
         </h2>
 
         <div
@@ -74,19 +80,37 @@ export default function Education() {
               >
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <div className="pl-4">
-                  <div className="flex justify-between items-start mb-2">
+                <div className="pl-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  {/* 🏫 School / College Logo */}
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={edu.logo}
+                      alt={edu.school}
+                      width={60}
+                      height={60}
+                      className="rounded-full border border-cyan-400/30 shadow-[0_0_10px_#00BFFF40] hover:scale-105 transition-transform duration-300"
+                    />
                     <div>
                       <h3 className="text-lg font-bold text-cyan-400">{edu.degree}</h3>
                       <p className="text-gray-400">{edu.school}</p>
+                      <p className="text-gray-400 text-sm">{edu.location}</p>
                     </div>
-                    <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-semibold border border-blue-500/30">
-                      {edu.year}
-                    </span>
                   </div>
-                  <p className="text-gray-400 text-sm mb-2">{edu.location}</p>
-                  {edu.cgpa && <p className="text-cyan-300 text-sm font-semibold">{edu.cgpa}</p>}
-                  {edu.score && <p className="text-cyan-300 text-sm font-semibold">{edu.score}</p>}
+
+                  {/* 📆 Year */}
+                  <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-semibold border border-blue-500/30">
+                    {edu.year}
+                  </span>
+                </div>
+
+                {/* 📚 CGPA or Score */}
+                <div className="pl-[76px] mt-3">
+                  {edu.cgpa && (
+                    <p className="text-cyan-300 text-sm font-semibold">{edu.cgpa}</p>
+                  )}
+                  {edu.score && (
+                    <p className="text-cyan-300 text-sm font-semibold">{edu.score}</p>
+                  )}
                 </div>
               </div>
             ))}
@@ -94,5 +118,5 @@ export default function Education() {
         </div>
       </div>
     </section>
-  )
+  );
 }
