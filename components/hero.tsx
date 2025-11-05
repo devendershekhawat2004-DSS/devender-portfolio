@@ -64,11 +64,14 @@ export default function Hero() {
               >
                 Get in Touch
               </a>
+
+              {/* ✅ Download CV button */}
               <a
-                href="#projects"
+                href="/Devender_Singh_Shekhawat_CV.pdf"
+                download="Devender_Singh_Shekhawat_CV"
                 className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg font-semibold hover:bg-cyan-400/10 transform hover:-translate-y-1 transition-all duration-300"
               >
-                View Work
+                Download CV
               </a>
             </div>
 
