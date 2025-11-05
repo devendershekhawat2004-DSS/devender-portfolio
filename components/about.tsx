@@ -21,10 +21,16 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50 backdrop-blur">
+    <section
+      id="about"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50 backdrop-blur"
+    >
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Me</span>
+          About{" "}
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Me
+          </span>
         </h2>
 
         <div
@@ -37,17 +43,17 @@ export default function About() {
               {
                 title: "Education",
                 description:
-                  "Currently pursuing MCA at Lovely Professional University with a strong academic background in Computer Applications.",
+                  "Currently pursuing MCA at Lovely Professional University with a solid foundation in Computer Applications and programming.",
               },
               {
-                title: "Focus",
+                title: "Internship",
                 description:
-                  "Passionate about web development, problem-solving, and creating seamless user experiences with clean code.",
+                  "Completed a Web Development Internship at Pantech Solutions, gaining hands-on experience in building responsive and dynamic web applications using HTML, CSS, JavaScript, and React.js.",
               },
               {
-                title: "Experience",
+                title: "Focus & Goals",
                 description:
-                  "Participated in international conferences, seminars, and workshops on AI, Cloud Computing, and Cyber Security.",
+                  "Dedicated to becoming a full-stack web developer. Passionate about front-end design, problem-solving, and building modern digital solutions that combine creativity with performance.",
               },
             ].map((item, index) => (
               <div
@@ -57,8 +63,12 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-300" />
 
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-cyan-400 mb-3">{item.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl font-bold text-cyan-400 mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}

@@ -40,12 +40,7 @@ export default function Achievements() {
       icon: Award,
       color: "from-blue-500 to-cyan-500",
     },
-    {
-      title: "AI Model Workshop",
-      description: "Participated in and received appreciation certificate for AI Model Workshop by NXT WAVE.",
-      icon: Award,
-      color: "from-green-500 to-emerald-500",
-    },
+    
   ]
 
   return (

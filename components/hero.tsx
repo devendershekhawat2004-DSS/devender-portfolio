@@ -54,8 +54,7 @@ export default function Hero() {
             </div>
 
             <p className="text-xl text-gray-300 leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-              Master of Computer Applications student passionate about web development, problem-solving, and building
-              engaging digital experiences.
+              MCA Student at Lovely Professional University | Aspiring Cloud & Cybersecurity Engineer | Networking & AWS Enthusiast.
             </p>
 
             <div className="flex gap-4 pt-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">

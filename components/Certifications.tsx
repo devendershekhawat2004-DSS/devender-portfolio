@@ -19,22 +19,22 @@ export default function Certifications() {
     return () => observer.disconnect();
   }, []);
 
-  // ✅ Updated certification list based on your LinkedIn screenshot
+  // 🎓 Updated and polished certification list
   const certificates = [
-    "Python Bootcamp: Learn Python from Scratch — by Code with Harry (Oct 2025)",
-    "The Ultimate Job Ready Data Science Course — by Code with Harry (Oct 2025)",
-    "Build Your Own Generative AI Model — by NxtWave (Nov 2023)",
-    "Certificate of Appreciation: Workshop on 'Build Your Own Generative AI Model' — by NxtWave (Nov 2023)",
-    "NCC 'A' Certificate — by National Cadet Corps, India (Sep 2020)",
+    "Python Bootcamp: Learn Python from Scratch — Code with Harry (Oct 2025)",
+    "The Ultimate Job Ready Data Science Course — Code with Harry (Oct 2025)",
+    "Build Your Own Generative AI Model — NxtWave (Nov 2023)",
+    "Certificate of Appreciation: Workshop on 'Build Your Own Generative AI Model' — NxtWave (Nov 2023)",
+    "NCC 'A' Certificate — National Cadet Corps, India (Sep 2020)",
   ];
 
   return (
-    <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          Certifications &{" "}
+          Certifications{" "}
           <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            Courses
+            & Courses
           </span>
         </h2>
 
@@ -47,10 +47,14 @@ export default function Certifications() {
             {certificates.map((cert, index) => (
               <li
                 key={index}
-                className="flex items-start gap-3 bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-lg p-4 border border-blue-500/20 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+                className="flex items-start gap-4 bg-gradient-to-br from-slate-700/40 to-slate-800/40 rounded-xl p-4 border border-blue-500/20 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
               >
-                <FaCertificate className="text-cyan-400 text-xl mt-1" />
-                <p className="text-gray-300">{cert}</p>
+                {/* Certificate icon */}
+                <div className="flex-shrink-0 mt-1">
+                  <FaCertificate className="text-cyan-400 text-2xl" />
+                </div>
+                {/* Certificate text */}
+                <p className="text-gray-300 leading-relaxed">{cert}</p>
               </li>
             ))}
           </ul>

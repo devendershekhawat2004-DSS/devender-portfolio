@@ -36,7 +36,7 @@ export default function Projects() {
     {
       title: "Fitness Tracker App",
       description:
-        "Created a personal portfolio using Next.js, TypeScript, and Tailwind CSS with animations and smooth scroll.",
+        "Track workouts like pushups, squats, and pullups with a smooth, animated interface built using Next.js, TypeScript, Tailwind CSS, and Framer Motion.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       impact: "Showcases my skills and achievements interactively",
       link: "https://fitness-tracker-24pz.vercel.app",

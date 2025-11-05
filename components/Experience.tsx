@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Briefcase } from "lucide-react";
 
 export default function Experience() {
@@ -21,23 +22,15 @@ export default function Experience() {
 
   const experiences = [
     {
-      company: "Optmyzr - SDE Intern",
-      role: "PPC Management Software Company (Since March 2023)",
+      company: "Pantech Solutions – Web Development Intern",
+      role: "Internship | January 2023 – April 2023",
+      logo: "/pantech-logo.png", // 👈 Add your logo file in /public folder
       description: [
-        "Integrated Google Ads and Bing Ads APIs into Optmyzr’s backend infrastructure using .NET.",
-        "Enhanced the UI of Optmyzr’s web app using React, PHP, and CoffeeScript.",
+        "Built responsive web interfaces using HTML, CSS, and JavaScript.",
+        "Developed and optimized front-end components for dynamic web apps.",
+        "Collaborated with mentors to implement real-time features and ensure cross-browser compatibility."
       ],
-      tech: "Redux · C# · CodeIgniter · .NET Framework · React.js · PHP",
-    },
-    {
-      company: "Payben Private Limited - Freelancer",
-      role: "April 2022 – March 2023",
-      description: [
-        "Re-developed a recharge and bill payment platform for Payben startup.",
-        "Managed recharge services and guaranteed rewards.",
-        "Enabled agents to provide mobile recharge services.",
-      ],
-      tech: "Android and Web Platforms",
+      tech: "HTML · CSS · JavaScript · React.js",
     },
   ];
 
@@ -48,7 +41,7 @@ export default function Experience() {
     >
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          Work{" "}
+          Internship{" "}
           <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Experience
           </span>
@@ -65,12 +58,22 @@ export default function Experience() {
                 key={index}
                 className="p-6 bg-gradient-to-br from-slate-700/40 to-slate-800/40 rounded-xl border border-blue-500/20 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 mb-3">
                   <Briefcase className="text-cyan-400" size={22} />
+                  {exp.logo && (
+                    <Image
+                      src={exp.logo}
+                      alt={`${exp.company} logo`}
+                      width={32}
+                      height={32}
+                      className="rounded-md"
+                    />
+                  )}
                   <h3 className="text-xl font-semibold text-cyan-400">
                     {exp.company}
                   </h3>
                 </div>
+
                 <p className="text-gray-400 mb-4">{exp.role}</p>
 
                 <ul className="list-disc list-inside text-gray-300 space-y-1 mb-4">
